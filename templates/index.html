@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>PixelForge - Pixel Art Studio</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <button id="cloudSaveBtn">
+Cloud Save
+</button>
+
+<button id="galleryBtn">
+Gallery
+</button>
+</head>
+
+<body>
+
+  <header class="topbar">
+
+    <div class="logo">
+      <span class="logo-icon">▦</span>
+      <span>PixelForge</span>
+    </div>
+
+    <div class="top-actions">
+      <button id="undoBtn" title="Undo (Ctrl + Z)">Undo</button>
+      <button id="redoBtn" title="Redo (Ctrl + Y)"> Redo</button>
+      <button id="saveBtn"> Save</button>
+
+      <button id="loadBtn"> Load</button>
+
+      <button id="clearBtn">Clear</button>
+
+      <button id="exportBtn" class="primary-btn">
+        Export PNG
+      </button>
+    </div>
+
+  </header>
+
+
+  <main class="app-container">
+
+    <!-- LEFT TOOLBAR -->
+
+    <aside class="sidebar">
+
+      <section class="tool-section">
+
+        <h3>Tools</h3>
+
+        <div class="tool-grid">
+
+          <button class="tool active" data-tool="pencil">
+            ✎
+            <span>Pencil</span>
+          </button>
+
+          <button class="tool" data-tool="eraser">
+            ◇
+            <span>Eraser</span>
+          </button>
+
+          <button class="tool" data-tool="fill">
+            ▰
+            <span>Fill</span>
+          </button>
+
+          <button class="tool" data-tool="line">
+            ╱
+            <span>Line</span>
+          </button>
+
+          <button class="tool" data-tool="rectangle">
+            □
+            <span>Rectangle</span>
+          </button>
+
+          <button class="tool" data-tool="circle">
+            ○
+            <span>Circle</span>
+          </button>
+
+        </div>
+
+      </section>
+
+
+      <section class="tool-section">
+
+        <h3>Color</h3>
+
+        <div class="color-picker-container">
+
+          <input type="color" id="colorPicker" value="#000000">
+
+          <div id="currentColor"></div>
+
+          <span id="colorHex">
+            #000000
+          </span>
+
+        </div>
+
+
+        <div class="color-input-row">
+
+          <input type="text" id="hexInput" value="#000000" maxlength="7">
+
+          <button id="addColorBtn">
+            +
+          </button>
+
+        </div>
+
+
+        <h4>Recent Colors</h4>
+
+        <div id="recentColors" class="recent-colors">
+
+        </div>
+
+      </section>
+
+
+      <section class="tool-section">
+
+        <h3>Canvas</h3>
+
+        <label>
+          Width
+
+          <input type="number" id="canvasWidth" value="32" min="4" max="128">
+
+        </label>
+
+
+        <label>
+          Height
+
+          <input type="number" id="canvasHeight" value="32" min="4" max="128">
+
+        </label>
+
+
+        <button id="createCanvasBtn" class="secondary-btn">
+          Create Canvas
+        </button>
+
+      </section>
+
+
+      <section class="tool-section">
+
+        <h3>View</h3>
+
+        <div class="zoom-controls">
+
+          <button id="zoomOutBtn">
+            −
+          </button>
+
+          <span id="zoomLevel">
+            100%
+          </span>
+
+          <button id="zoomInBtn">
+            +
+          </button>
+
+        </div>
+
+
+        <button id="resetZoomBtn" class="secondary-btn">
+          Reset Zoom
+        </button>
+
+      </section>
+
+    </aside>
+
+
+    <!-- CANVAS AREA -->
+
+    <section class="workspace">
+
+      <div class="workspace-header">
+
+        <div>
+          <strong>Untitled Pixel Art</strong>
+
+          <span id="canvasInfo">
+            32 × 32
+          </span>
+        </div>
+
+        <div class="workspace-actions">
+
+          <button id="gridToggleBtn">
+            Grid
+          </button>
+
+          <button id="panToggleBtn">
+            Pan
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div id="canvasWrapper" class="canvas-wrapper">
+
+        <canvas id="pixelCanvas"></canvas>
+
+      </div>
+      <div id="gallery" class="gallery hidden">
+
+</div>
+
+
+      <div class="status-bar">
+
+        <span>
+          Tool:
+          <strong id="currentTool">
+            Pencil
+          </strong>
+        </span>
+
+        <span>
+          Position:
+          <strong id="cursorPosition">
+            -
+          </strong>
+        </span>
+
+        <span>
+          Zoom:
+          <strong id="statusZoom">
+            100%
+          </strong>
+        </span>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+ <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</body>
+
+</html>
