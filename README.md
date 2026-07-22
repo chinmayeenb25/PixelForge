@@ -1,0 +1,2 @@
+PixelForge is a browser-based pixel art studio that allows users to create, edit, and export pixel artwork directly from their browser. It features a customizable drawing canvas, multiple editing tools, color management, undo/redo history, zoom controls, and project saving capabilities. Built to demonstrate modern frontend development, state management, canvas-based rendering, and full-stack concepts using JavaScript, Flask, and SQLite.
+Live link:https://pixelforge-yxc6.onrender.com/
